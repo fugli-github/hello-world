@@ -1,0 +1,56 @@
+[<TAG>] <subject>
+
+<body>
+
+<SCM traceability info>
+
+# INSTRUCTIONS
+#
+# - Replace <placeholder> with actual value if applicable or delete it
+# - Keep empty lines between the blocks as in the template
+#
+# <TAG>:	Jira/Pronto/Feature/Change ID or 'none' if not any (mandatory)
+# <subject>:    Summary of WHAT commit does (mandatory)
+#
+# <body>:       More detailed free-form description of the purpose of
+#               this commit (recommended)
+#
+# <SCM traceability info>: (mandatory if applicable)
+#     Format: <STA> <TY>=<ID>
+#         <STA>: Status information (optional). Possible values:
+#                %FIN: implementation FINished (default for %PR and %CN)
+#                %TBC: implementation To Be Continued (default for %NF)
+#                %BCK: rollBaCK of a pronto, feature or change note
+#         <TY>: Type information. Possible values:
+#                %PR: PRonto with identifier <ID>
+#                %NF: New Feature with identifier <ID>
+#                %CN: Change Note with identifier <ID>
+#
+#     Alternative format: %REM <remark>
+#         <remark>: Free form text line to be added to the Release Notes
+#
+# EXAMPLES
+#
+# Commit closes pronto PR12345:
+#     ---
+#     [PR12345] Fix memory allocation in bug in Foo
+#
+#     %FIN %PR=PR12345
+#     ---
+#
+# Commit is a general improvement with no JIRA issue or SCM traceablity needs:
+#     ---
+#     [none] Refactor component Bar
+#     ---
+#
+# Commit is part of implementation of Jira issue FCA_RF_L1L-12345:
+#     ---
+#     [FCA_RF_L1L-12345] Improve logging for Baz
+#     ---
+#
+# Commit is part of new feature LTE1234:
+#     ---
+#     [LTE1234][FCA_RF_L1L-1234] New feature implementation for Foo
+#
+#     %TBC %NF=LTE1234
+#     ---
